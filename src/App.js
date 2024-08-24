@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useRef, useEffect } from 'react';
+import SignIn from './pages/SignIn';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
+  const [theme, setTheme] = useState(false);
+
+
+  const toggleTheme = () => {
+    setTheme(!theme);
+  };
+
+if (theme) {
+  document.body.className="lightmode";
+}
+if(!theme){
+  document.body.className="darkmode"
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<SignIn theme={toggleTheme} onThemeChange={setTheme} />}/>
+        <Route path='/home' element={<Home/>}/>
+      </Routes>
+      </BrowserRouter>
+      
     </div>
   );
 }

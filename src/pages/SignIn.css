@@ -1,0 +1,215 @@
+#body{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #615cff;
+    height: 90vh;
+    width: 50vw;
+    border-radius: 1rem;
+}
+
+.innerleft{
+    
+   position: relative;
+    background-color: #4b57d6;
+    height: 87%;
+    width: 87%;
+    border-radius: 1rem;
+}
+
+.lady{
+    height: auto;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    color: black;
+    background-color: white;
+    padding: 0vw 1.5vw 0vw 1vw;
+    align-items: center;
+    width: 10vw;
+    border-radius: 10rem;
+    margin: 3vw 0 0 3vw;
+}
+
+.ll{
+    margin: 0 0.5vw 0 0;
+    height: 4.5vw;
+    width: auto;
+}
+
+.text{
+    color: white;
+    margin: 1vw 0 0 3vw;
+    width: 75%;
+    font-size: x-large;
+}
+
+#button{
+    margin: 5rem;
+    position: absolute;
+    bottom: 0;
+   left: 0;
+}
+
+.right{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    height: 90vh;
+    width: 45vw;
+    border-radius: 1rem;
+}
+
+.innerright{
+     
+        position: relative;
+         height: 80%;
+         width: 60%;
+         border-radius: 1rem;
+
+}
+
+.google{
+    border-radius: 0.5rem;
+    column-gap: 7px;
+    padding: 3px;
+    color: #858585;
+    display: flex;
+    flex-direction: row;
+    background-color: #0d0d0d;
+    height: auto;
+    width: 12vw;
+    justify-content: center;
+} 
+
+#google{
+
+    height: 1vw;
+    height: 1vw;
+}
+
+.apple{
+    border-radius: 0.5rem;
+    column-gap: 7px;
+    padding: 3px;
+    color: #858585;
+    display: flex;
+    flex-direction: row;
+    background-color: #0d0d0d;
+    height: auto;
+    width: 12vw;
+    justify-content: center;
+} 
+
+#apple{
+  
+    height: 1vw;
+    height: 1vw;
+}
+
+.l-google{
+    border-radius: 0.5rem;
+    column-gap: 7px;
+    padding: 3px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    height: auto;
+    width: 10.5vw;
+} 
+
+.l-apple{
+    border-radius: 0.5rem;
+    column-gap: 7px;
+    padding: 3px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    height: auto;
+    width: 10.5vw;
+} 
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin: 1vw 0 0 0;
+    width: auto;
+    background-color: #0d0d0d;
+    height: auto;
+    padding: 2vw;
+    border-radius: 1.5rem;
+}
+
+.l-form{
+    display: flex;
+    flex-direction: column;
+    margin: 1vw 0 0 0;
+    width: auto;
+    background-color: white;
+    height: auto;
+    padding: 2vw;
+    border-radius: 1.5rem;
+}
+
+.input{
+    border: 0;
+    margin: 1vw 0 1.5vw 0;
+    border-radius: 0.5rem;
+    padding: 0.5vw;
+    background-color: #171717;
+    color: white;
+}
+
+.l-input{
+    border: 0;
+    margin: 1vw 0 1.5vw 0;
+    border-radius: 0.5rem;
+    padding: 0.5vw;
+    background-color: #f5f5f5;
+    color: black;
+}
+.submit{
+    margin: 1vw 0 0 0;
+    background-color: #615cff;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    padding: 0.5vw;
+    border-radius: 0.5rem;
+}
+
+.l-submit{
+    color: white;
+    margin: 1vw 0 0 0;
+    background-color: #615cff;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    padding: 0.5vw;
+    border-radius: 0.5rem;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    
+}
