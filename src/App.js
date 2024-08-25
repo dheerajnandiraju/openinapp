@@ -24,7 +24,7 @@ if(!theme){
       <BrowserRouter>
       <Routes>
         <Route path='/login' element={<SignIn theme={toggleTheme} onThemeChange={setTheme} />}/>
-        <Route path='/home' element={<Home/>}/>
+        <Route path='/home' element={<Home theme={toggleTheme} onThemeChange={setTheme}/>}/>
       </Routes>
       </BrowserRouter>
       

@@ -125,12 +125,14 @@ function SignIn({ theme }) {
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 className="input"
+                required
               />
               Password
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 className="input"
+                required
               />
               <a href="" style={{ color: "#4a79d9", textDecoration: "none" }}>
                 Forgot password
