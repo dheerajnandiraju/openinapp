@@ -79,7 +79,10 @@ function SignIn({ theme }) {
   return (
     <div>
       {/* {userLoggedIn && <Navigate to={"/home"} replace={true} />} */}
-
+      <div className="header">
+        <img className="ll" src={logo} alt="" />
+        <h2>BASE</h2>
+      </div>
       <div id="body">
         <div className="left">
           <div className="innerleft">

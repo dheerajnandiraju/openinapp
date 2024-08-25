@@ -12,7 +12,7 @@
     top: 0;
     left: 0;
     background-color: #0d0d0d;
-    height: 95.7vh;
+    height: 100vh;
     width: 20vw;
     transition: width 0.5s ease-in-out; /* Add transition */
 
@@ -24,7 +24,7 @@
     top: 0;
     left: 0;
     background-color: white;
-    height: 95.7vh;
+    height: 100vh;
     width: 20vw;
     transition: width 0.5s ease-in-out; /* Add transition */
 }
@@ -119,9 +119,16 @@
   cursor: pointer;
   width: 60vw;
     height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1vw;
+
 }
 
 .csv-upload-label {
+  
   display: block;
   font-size: 16px;
   margin-bottom: 10px;
@@ -167,3 +174,82 @@
     justify-content: center;
     font-weight: 600;
   }
+
+  .selectedtag{
+    background-color: #7f7dff;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #7f7dff;
+   
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  .tag .close-icon {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+
+  .customers {
+    border-radius: 1rem; /* Adjust this value to control the border radius */
+    border-collapse: separate; /* Ensure spacing between rows */
+    border-spacing: 0; /* Prevent extra spacing between borders */
+    width: 90%;
+    margin: 0 0 0 3vw;
+    background-color: #0d0d0d;
+    padding: 1vw;
+  }
+  
+ .customersrow{
+ 
+  background-color: #171717;
+  margin: 3vw;
+  border-radius: 1vw;
+  row-gap: 1vw;
+ }
+
+ .customers td {
+  padding: 10px 0 10px 0; /* Adjust padding as needed */
+ 
+}
+
+.l-customers {
+  border-radius: 1rem; /* Adjust this value to control the border radius */
+  border-collapse: separate; /* Ensure spacing between rows */
+  border-spacing: 0; /* Prevent extra spacing between borders */
+  width: 90%;
+  margin: 0 0 0 3vw;
+  background-color: #ccc;
+  padding: 1vw;
+}
+
+.l-customersrow{
+
+background-color: white;
+margin: 3vw;
+border-radius: 1vw;
+row-gap: 1vw;
+}
+
+.l-customers td {
+padding: 10px 0 10px 0; /* Adjust padding as needed */
+
+}
+
+.excel{
+  height: 3vw;
+  width: 4vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .sidebar-body{
+    display: none;
+  }
+  .l-sidebar-body{display: none;}
+  .topbar{width: 95vw;}
+  .right-bottom{height: 60vh;}
+}

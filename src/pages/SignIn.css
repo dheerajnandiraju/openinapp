@@ -54,11 +54,11 @@
     color: white;
     margin: 1vw 0 0 3vw;
     width: 75%;
-    font-size: x-large;
+    font-size: 2vw;
 }
 
 #button{
-    margin: 5rem;
+    margin: 2vw;
     position: absolute;
     bottom: 0;
    left: 0;
@@ -96,6 +96,7 @@
     height: auto;
     width: 12vw;
     justify-content: center;
+    font-size: xx-small;
 } 
 
 #google{
@@ -115,6 +116,7 @@
     height: auto;
     width: 12vw;
     justify-content: center;
+    font-size: xx-small;
 } 
 
 #apple{
@@ -214,3 +216,23 @@
     flex-direction: row;
     
 }
+
+.header{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    background-color: #7f7dff;
+}
+
+@media screen and (max-width: 1000px) {
+.left{display: none;}
+.right{width: 100%;}
+.innerright{height: 50%;}
+.google{width: 25vw;}
+.apple{width: 25vw;}
+.input{height: 5vw;}
+.l-input{height: 5vw;}
+.header{display: flex;}
+.l-google{width: 25vw;}
+.l-apple{width: 25vw;}
+  }

@@ -13,17 +13,34 @@ import { BsFillFileEarmarkTextFill } from "react-icons/bs";
 import { FaCalendarDays } from "react-icons/fa6";
 import { IoNotifications } from "react-icons/io5";
 import { FaGear } from "react-icons/fa6";
+import { FiUpload } from "react-icons/fi";
+import excel from "../images/excel.png";
 
 function Home({ theme }) {
+  const [selectedData, setSelectedData] = useState({});
   const [color, setcolor] = useState("false");
+  const [table, settable] = useState(false);
   const buttontheme = () => {
     setcolor(!color);
     const body = document.getElementsByClassName("sidebar-body")[0];
+    const table = document.getElementsByClassName("customers")[0];
+    const tablerow = document.getElementsByClassName("customersrow");
 
     if (color) {
       body.classList.toggle("l-sidebar-body");
+
+      if (table) {
+        table.classList.toggle("l-customers");
+        tablerow[0].classList.toggle("l-customersrow");
+        tablerow[1].classList.toggle("l-customersrow");
+        tablerow[2].classList.toggle("l-customersrow");
+        tablerow[3].classList.toggle("l-customersrow");
+        tablerow[4].classList.toggle("l-customersrow");
+      }
     }
   };
+
+  console.log(selectedData);
 
   const [collapse, setcollapse] = useState(false);
   const oncollapse = () => {
@@ -90,6 +107,52 @@ function Home({ theme }) {
     }
   }, []);
 
+  const handleDropdownChange = (index, selectedOption) => {
+    const updatedSelectedData = { ...selectedData };
+
+    if (updatedSelectedData[index]) {
+      // If the row already has selected options, check if the selected option is already included
+      if (!updatedSelectedData[index].includes(selectedOption)) {
+        updatedSelectedData[index] = [
+          ...updatedSelectedData[index],
+          selectedOption,
+        ]; // Add the selected option if it's not already included
+      } else {
+        // If the selected option is already included, remove it
+        updatedSelectedData[index] = updatedSelectedData[index].filter(
+          (option) => option !== selectedOption
+        );
+      }
+    } else {
+      // If the row has no selected options, initialize with the selected option
+      updatedSelectedData[index] = [selectedOption];
+    }
+
+    setSelectedData(updatedSelectedData);
+  };
+
+  function Tag({ tag, onClose }) {
+    return (
+      <div className="tag">
+        {tag}
+        <span className="close-icon" onClick={onClose}>
+          x
+        </span>
+      </div>
+    );
+  }
+
+  const handleTagRemove = (index, tag) => {
+    const updatedSelectedData = { ...selectedData };
+    updatedSelectedData[index] = updatedSelectedData[index].filter(
+      (t) => t !== tag
+    );
+    setSelectedData(updatedSelectedData);
+  };
+
+  const showtable = () => {
+    settable(!table);
+  };
   return (
     <div style={{ display: "inline-flex", alignItems: "flex-start" }}>
       <div>
@@ -229,33 +292,65 @@ function Home({ theme }) {
               id="csv-input"
               style={{ display: "none" }}
             />
+            <img className="excel" src={excel} alt="" />
             <label htmlFor="csv-input" className="csv-upload-label">
               Drag and Drop CSV File Here
             </label>
           </div>
+          <button onClick={showtable} className="upload">
+            <FiUpload />
+            Upload
+          </button>
         </div>
         <div>
-          <table>
-            <thead>
-              <tr>
-                {data.length > 0 && data[0].map((header) => <th>{header}</th>)}
-              </tr>
-            </thead>
-            <tbody>
-              {data.slice(1, 6).map(
-                (
-                  row,
-                  index // Limit to 5 rows
-                ) => (
-                  <tr key={index}>
-                    {row.map((cell) => (
-                      <td>{cell}</td>
+          {table && (
+            <table className="customers">
+              <thead>
+                <tr>
+                  {data.length > 0 &&
+                    data[0].map((header, index) => (
+                      <th key={index}>{header}</th>
                     ))}
+                </tr>
+              </thead>
+              <tbody>
+                {data.slice(1, 6).map((row, index) => (
+                  <tr className="customersrow" key={index}>
+                    {row.map((cell, colIndex) =>
+                      colIndex === 3 ? (
+                        <td>
+                          <select
+                            id={`select-${index}`}
+                            name={`select-${index}`}
+                            value={selectedData[index] || ""}
+                            onChange={(e) =>
+                              handleDropdownChange(index, e.target.value)
+                            }
+                          >
+                            {cell.split(",").map((option, index) => (
+                              <option key={index}>{option}</option>
+                            ))}
+                          </select>
+                        </td>
+                      ) : colIndex === 4 ? (
+                        <td>
+                          {selectedData[index]?.map((tag) => (
+                            <Tag
+                              key={tag}
+                              tag={tag}
+                              onClose={() => handleTagRemove(index, tag)}
+                            />
+                          ))}
+                        </td>
+                      ) : (
+                        <td>{cell}</td>
+                      )
+                    )}
                   </tr>
-                )
-              )}
-            </tbody>
-          </table>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </div>

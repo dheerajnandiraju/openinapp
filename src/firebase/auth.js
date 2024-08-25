@@ -1,6 +1,6 @@
-import { createUserWithEmailAndPassword, OAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, OAuthProvider, signInWithEmailAndPassword, signInWithPopup,GoogleAuthProvider } from "firebase/auth";
 import {auth} from "./firebase";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
+// import { GoogleAuthProvider } from "firebase/auth/web-extension";
 
 export const doCreateUserWithEmailAndPassword= async(email,password)=>{
     return createUserWithEmailAndPassword(auth,email,password);
