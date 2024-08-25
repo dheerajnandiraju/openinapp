@@ -17,10 +17,11 @@ import {
 } from "../firebase/auth";
 
 import { useAuth } from "../context/Authcontext";
-import { Navigate } from "react-router-dom";
+
+import { Navigate, useNavigate } from "react-router-dom";
 
 function SignIn({ theme }) {
-  // const { userLoggedIn } = useAuth();
+  
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,14 +33,6 @@ function SignIn({ theme }) {
     if (!issigningIN) {
       setissigningIn(!issigningIN);
       doSignInWithEmailAndPassword(email, password);
-    }
-  };
-
-  const onGoogle = async (e) => {
-    e.preventDefault();
-    if (!issigningIN) {
-      setissigningIn(!issigningIN);
-      doSignInWithGoogle();
     }
   };
 
@@ -74,6 +67,21 @@ function SignIn({ theme }) {
     const submit = document.querySelector(".submit");
     if (button) {
       submit.classList.toggle("l-submit");
+    }
+  };
+  const navigate = useNavigate();
+  const onGoogle = async (e) => {
+    e.preventDefault();
+    if (!issigningIN) {
+      setissigningIn(!issigningIN);
+      try {
+        await doSignInWithGoogle();
+        navigate("/home"); // Redirect to home page on successful Google login
+      } catch (error) {
+        seterrormessege(error.message);
+      } finally {
+        setissigningIn(!issigningIN);
+      }
     }
   };
   return (
