@@ -21,8 +21,6 @@ import { useAuth } from "../context/Authcontext";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function SignIn({ theme }) {
-  
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [issigningIN, setissigningIn] = useState(false);
@@ -34,6 +32,10 @@ function SignIn({ theme }) {
       setissigningIn(!issigningIN);
       doSignInWithEmailAndPassword(email, password);
     }
+  };
+
+  const handleSubmit = async (e) => {
+    navigate("/home", { replace: true });
   };
 
   const onApple = async (e) => {
@@ -148,7 +150,7 @@ function SignIn({ theme }) {
               <a href="" style={{ color: "#4a79d9", textDecoration: "none" }}>
                 Forgot password
               </a>
-              <button onClick={onSubmit} className="submit">
+              <button onClick={handleSubmit} className="submit">
                 Submit
               </button>
             </form>
